@@ -21,7 +21,10 @@ public class Codec {
     public TreeNode deserialize(String data) {
         String[] sp=data.split(",");
         Queue<String> q=new LinkedList();
-        q.addAll(Arrays.asList(sp));
+        for(String s:sp){
+            q.add(s);
+        }
+       // q.addAll(Arrays.asList(sp));
         return buildTree(q,root);
     }
     TreeNode root=null;
