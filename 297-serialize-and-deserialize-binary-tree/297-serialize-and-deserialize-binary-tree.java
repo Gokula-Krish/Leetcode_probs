@@ -19,6 +19,7 @@ public class Codec {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
+       // System.out.println(data);
         String[] sp=data.split(",");
         Queue<String> q=new LinkedList();
         q.addAll(Arrays.asList(sp));
