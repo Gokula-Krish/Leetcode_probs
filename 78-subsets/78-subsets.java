@@ -1,9 +1,7 @@
 class Solution {
     public void getSubSets(int[] nums,List<List<Integer>> ans,int i,ArrayList<Integer> data){
         if(i>=nums.length){
-            ArrayList<Integer> dup=new ArrayList();
-            dup=(ArrayList)data.clone();
-            ans.add(dup);
+            ans.add(new ArrayList(data));
             return;
         }
         data.add(nums[i]);
@@ -12,7 +10,7 @@ class Solution {
         getSubSets(nums,ans,i+1,data);
     }
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> ans=new ArrayList<List<Integer>>();
+        List<List<Integer>> ans=new ArrayList();
         ArrayList<Integer> data=new ArrayList();
         getSubSets(nums,ans,0,data);
         return ans;
