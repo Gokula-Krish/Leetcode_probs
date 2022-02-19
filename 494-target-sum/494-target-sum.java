@@ -1,19 +1,22 @@
 class Solution {
     int c=0;
+    HashMap<Integer,Integer> map=new HashMap();
     public int findTargetSumWays(int[] nums, int target) {
-        recursion(nums,target,0);
-        return c;
+        return recursion(nums,target,0);
     }
-    public void recursion(int[] nums,int target,int i){
+    public int recursion(int[] nums,int target,int i){
+        // if(map.containsKey(target)){
+        //     return map.get(target);
+        // }
         if(i==nums.length){
             if(target==0){
-                c++;
-                return;
+                return 1;
             }
+            return 0;
         }
-        else{
-            recursion(nums,target+nums[i],i+1);
-            recursion(nums,target-nums[i],i+1);
-        }
+        int a=recursion(nums,target+nums[i],i+1);
+        int b=recursion(nums,target-nums[i],i+1);
+       // map.put(target,(a+b));
+        return a+b;
     }
 }
