@@ -27,9 +27,7 @@ class Solution {
         return map.get(s);
     }
     public int coinChange(int[] coins, int amount) {
-       // counts=new int[amount+1];
         int ans=findCoins(coins,amount);
         return ans;
     }
-    // int[] counts;
 }
