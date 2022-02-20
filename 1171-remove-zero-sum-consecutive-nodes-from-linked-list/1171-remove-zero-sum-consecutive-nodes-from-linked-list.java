@@ -25,8 +25,7 @@ class Solution {
             }
             if(map.containsKey(s)){
                 ListNode node=map.get(s);
-                int ps=s;
-                deleteNodes(node.next,h,map,ps);
+                deleteNodes(node.next,h,map,s);
                 node.next=h.next;
             }
             else{
