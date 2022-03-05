@@ -29,12 +29,7 @@ class Solution{
         // your code here
         char[] ch=S.toCharArray();
         int l=0,r=S.length()-1;
-      //  System.out.println(S.length());
         while(l<r){
-            if(l==r){
-                break;
-            }
-           // System.out.println(ch[l]+"---->"+ch[r]+"======="+l+"_____"+r);
             while(ch[l]==' ' && l!=r){
                 l++;
             }
@@ -44,14 +39,11 @@ class Solution{
             while(ch[r]==' ' && l!=r){
                 r--;
             }
-         //   System.out.println(ch[l]+"---->"+ch[r]+"======="+l+"_____"+r);
             char c=ch[l];
             ch[l]=ch[r];
             ch[r]=c;
-         //   System.out.println("REV: "+new String(ch));
             l++;r--;
         }
-       // System.out.println("ANS: "+Arrays.toString(ch));
         return new String(ch);
     }
 }
