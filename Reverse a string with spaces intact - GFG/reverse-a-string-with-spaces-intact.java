@@ -33,9 +33,6 @@ class Solution{
             while(ch[l]==' ' && l!=r){
                 l++;
             }
-            if(l==r){
-                break;
-            }
             while(ch[r]==' ' && l!=r){
                 r--;
             }
