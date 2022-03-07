@@ -135,7 +135,6 @@ class Solution {
             return;
         }
         found=isEqual(root,s);
-       // System.out.println("ANS: "+found);
         if(found){
             return;
         }
@@ -152,13 +151,7 @@ class Solution {
         return (root1.data==root2.data && isEqual(root1.left,root2.left) && isEqual(root1.right,root2.right));
     }
     public static boolean isSubtree(Node T, Node S) {
-        // add code here.
-        if(T==null){
-            return false;
-        }
-        if(S==null){
-            return true;
-        }
+        // add code here
         found=false;
         preOrder(T,S);
         return found;
