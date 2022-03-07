@@ -1,5 +1,5 @@
 # Check if subtree
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given two binary trees with head reference as <strong>T</strong><strong> </strong>and <strong>S</strong> having at most <strong>N</strong> nodes. The&nbsp;task is to check if S is present as subtree in T.<br>
 A subtree of a tree T1 is a tree T2 consisting of a node in T1 and all of its descendants in T1.</span></p>
