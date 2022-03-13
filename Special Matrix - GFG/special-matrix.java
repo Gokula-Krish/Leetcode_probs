@@ -40,24 +40,24 @@ class Solution{
         // Code here
         HashSet<Integer> row=new HashSet();
         HashSet<Integer> col=new HashSet();
-        boolean[][] visited=new boolean[n+1][m+1];
+        boolean[][] visited=new boolean[n][m];
         for(int[] a:blocked_cells){
-            visited[a[0]][a[1]]=true;
+            visited[a[0]-1][a[1]-1]=true;
         }
-        int[][] dp=new int[n+1][m+1];
+        int[][] dp=new int[n][m];
         for(int[] d:dp){
             Arrays.fill(d,-1);
         }
-        return dfs(1,1,n,m,visited,row,col,dp);
+        return dfs(0,0,n,m,visited,row,col,dp);
     }
     public int dfs(int r,int c,int n,int m,boolean[][] visited,HashSet<Integer> row,HashSet<Integer> col,int[][] dp){
-        if(r>n || c>m || visited[r][c]){
+        if(r>=n || c>=m || visited[r][c]){
             return 0;
         }
         if(dp[r][c]!=-1){
             return dp[r][c];
         }
-        if(r==n && c==m){
+        if(r==n-1 && c==m-1){
             return 1;
         }
         
