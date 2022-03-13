@@ -52,7 +52,6 @@ class Solution{
     }
     public int dfs(int r,int c,int n,int m,boolean[][] visited,HashSet<Integer> row,HashSet<Integer> col,int[][] dp){
         if(r>n || c>m || visited[r][c]){
-          //  System.out.println(r+"=====>"+c);
             return 0;
         }
         if(dp[r][c]!=-1){
