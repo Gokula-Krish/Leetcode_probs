@@ -2,7 +2,6 @@ class Solution {
     public int findUnsortedSubarray(int[] nums) {
         int[] c=nums.clone();
         Arrays.sort(c);
-        //System.out.println(Arrays.toString(c));
         int len=Integer.MAX_VALUE;
         int l=-1,r=-1;
         for(int i=0;i<nums.length;i++){
@@ -17,7 +16,6 @@ class Solution {
                 break;
             }
         }
-        //System.out.println(l+"------>"+r);
         return r-l<=0?0:r-l+1;
     }
 }
