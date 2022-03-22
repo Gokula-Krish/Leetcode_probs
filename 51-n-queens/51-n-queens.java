@@ -1,71 +1,38 @@
 class Solution {
-    List<List<String>> res=new ArrayList<>();
-    public List<List<String>> solveNQueens(int n) {
-        if(n==1){
-            ArrayList<String> a=new ArrayList<String>();
-            a.add("Q");
-            res.add(a);
-            return res;
-        }
-        if(n==2){
-            return res;
-        }
-        if(n==3){
-            return res;
-        }
-        char mat[][]=new char[n][n];
-        for(int i=0;i<n;i++){
-            Arrays.fill(mat[i],'.');
-        }
-        pass(0,mat,n);
-        return res;
-        
-    }
-    void pass(int ind ,char mat[][],int n){
-        if(ind==n){
-            ArrayList<String> al=new ArrayList<String>();
-            for(int i=0;i<n;i++){
-                String s="";
-                for(int j=0;j<n;j++){
-                    s+=mat[i][j];
-                }
-                al.add(s);
+    List<List<String>> ls=new ArrayList();
+    public void solve(char[][] board,int[] row,int[] lowerDiag,int[] upperDiag,int c,int n){
+        if(c==n){
+            ArrayList<String> l=new ArrayList();
+            for(char[] b:board){
+                l.add(new String(b));
             }
-            res.add(al);
+            ls.add(l);
             return;
         }
-        for(int i=0;i<n;i++){
-            if(mat[ind][i]=='.' && isValid(mat,ind,i,n)){
-                mat[ind][i]='Q';
-                pass(ind+1,mat,n);
-                mat[ind][i]='.';
+        for(int r=0;r<n;r++){
+            if(row[r]==0 && lowerDiag[r+c]==0 && upperDiag[n-1+c-r]==0){
+                board[r][c]='Q';
+                row[r]=1;
+                lowerDiag[r+c]=1;
+                upperDiag[n-1+c-r]=1;
+                solve(board,row,lowerDiag,upperDiag,c+1,n);
+                board[r][c]='.';
+                row[r]=0;
+                lowerDiag[r+c]=0;
+                upperDiag[n-1+c-r]=0;
             }
+            
         }
     }
-    boolean isValid(char mat[][],int r,int c,int n){
-        for(int i=0;i<n;i++){
-            if(mat[r][i]!='.' || mat[i][c]!='.'){
-                return false;
-            }
-            if(isValidPoints(r-i,c-i,n) && mat[r-i][c-i]!='.'){
-                return false;
-            }
-            if(isValidPoints(r-i,c+i,n) && mat[r-i][c+i]!='.'){
-                return false;
-            }
-            if(isValidPoints(r+i,c-i,n) && mat[r+i][c-i]!='.'){
-                return false;
-            }
-            if(isValidPoints(r+i,c+i,n) && mat[r+i][c+i]!='.'){
-                return false;
-            }
+    public List<List<String>> solveNQueens(int n) {
+        char[][] board=new char[n][n];
+        for(char[] d:board){
+            Arrays.fill(d,'.');
         }
-        return true;
-    }
-    boolean isValidPoints(int i,int j,int n){
-        if(i<0 || i>=n || j<0 || j>=n){
-            return false;
-        }
-        return true;
+        int[] row=new int[n];
+        int[] upperDiag=new int[2*n-1];
+        int[] lowerDiag=new int[2*n-1];
+        solve(board,row,lowerDiag,upperDiag,0,n);
+        return ls;
     }
 }
