@@ -145,34 +145,23 @@ class GFG{
             head=n2;
             return head;
         }
-        
-            Node a0=front,b0=back,a1=a0.next,a2=a1.next,b1=b0.next,b2=b1.next;
-            if(a1.next==b1){
-                a0.next=b1;
-                b1.next=a1;
-                a1.next=b2;
-                return head;
-            }
-            else if(b1.next==a1){
-                b0.next=a1;
-                a1.next=b1;
-                b1.next=a2;
-                return head;
-            }
+        Node a0=front,b0=back,a1=a0.next,a2=a1.next,b1=b0.next,b2=b1.next;
+        if(a1.next==b1){
+            a0.next=b1;
+            b1.next=a1;
+            a1.next=b2;
+            return head;
+        }
+        else if(b1.next==a1){
+            b0.next=a1;
+            a1.next=b1;
+            b1.next=a2;
+            return head;
+        }
         a0.next=b1;
         b1.next=a2;
         b0.next=a1;
         a1.next=b2;
-        
-        
-        
-       // System.out.println(front.data+"=====>"+back.data);
-        // Node h1=head;
-        // while(h1!=null){
-        //     System.out.print(h1.data+",");
-        //     h1=h1.next;
-        // }
-        // System.out.println();
         return head;
     }
 }
