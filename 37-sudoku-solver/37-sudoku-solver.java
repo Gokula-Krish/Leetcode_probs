@@ -1,6 +1,5 @@
 class Solution {
     public boolean backTrack(char[][] board,int r,int c){
-        
         if(r==board.length-1 && c==board.length){
             return true;
         }
@@ -10,7 +9,6 @@ class Solution {
         if(board[r][c]!='.'){
             return backTrack(board,r,c+1);
         }
-        
         for(int i=1;i<=9;i++){
             if(isSafe(board,r,c,i)){
                 board[r][c]=String.valueOf(i).charAt(0);
