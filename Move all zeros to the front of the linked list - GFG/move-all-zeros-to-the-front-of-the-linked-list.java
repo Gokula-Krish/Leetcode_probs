@@ -56,44 +56,22 @@ class Node{
 */
 
 class GfG{
-    public Node moveZeroes(Node head){
+     public Node moveZeroes(Node head){
         //Your Code here.
-        Node zeros=null,nonzeros=null,zh=null,nZH=null;
-        Node h=head;
-       // System.out.println("HELLOOOOOO");
-        while(h!=null){
-          //  System.out.println(h.data);
-            if(h.data==0){
-                if(zeros==null){
-                    zeros=h;
-                    zh=h;
-                }
-                else{
-                    zeros.next=h;
-                    zeros=zeros.next;
-                }
+        Node temp=head;
+        while(temp.next!=null){
+            if(temp.next.data==0){
+                Node nex=temp.next.next;
+               
+                Node nex1=temp.next;
+                nex1.next=head;
+                head=nex1;
+                 temp.next=nex;
             }
             else{
-                if(nonzeros==null){
-                    nonzeros=h;nZH=h;
-                }
-                else{
-                    nonzeros.next=h;
-                    nonzeros=nonzeros.next;
-                }
+                temp=temp.next;
             }
-            h=h.next;
         }
-        if(zeros==null){
-            nonzeros.next=null;
-            return nZH;
-        }
-        if(nonzeros==null){
-            zeros.next=nZH;
-            return zh;
-        }
-        zeros.next=nZH;
-        nonzeros.next=null;
-        return zh;
+        return head;
     }
 }
