@@ -1,33 +1,26 @@
 class Solution {
-    // int min=Integer.MAX_VALUE;
-    HashMap<Integer,Integer> map=new HashMap();
-    public int findCoins(int[] coins,int s){
-        if(s<0){
-            return -1;
-        }
-        if(s==0){
+    public int coinChange(int[] coins, int amount) {
+        if(amount==0){
             return 0;
         }
-         if(map.containsKey(s)){
-            return map.get(s);
-        }
-        int min=Integer.MAX_VALUE;
-        for(int i=0;i<coins.length;i++){
-            int m=findCoins(coins,s-coins[i]);
-            if(m>=0 && m<min){
-                min=1+m;
+        int[][] dp=new int[coins.length+1][amount+1];
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[i].length;j++){
+                if(j==0){
+                    dp[i][j]=0;
+                }
+                else if(i==0){
+                    dp[i][j]=999999;
+                }
+                else if(j<coins[i-1]){
+                   dp[i][j]=dp[i-1][j];
+                }
+                else{
+                    dp[i][j]=Math.min(dp[i][j-coins[i-1]]+1,dp[i-1][j]);
+                }
             }
         }
-        if(min==Integer.MAX_VALUE){
-            map.put(s,-1);
-        }
-        else{
-            map.put(s,min);
-        }
-        return map.get(s);
-    }
-    public int coinChange(int[] coins, int amount) {
-        int ans=findCoins(coins,amount);
-        return ans;
+        int ans=dp[coins.length][amount];
+        return ans==999999?-1:ans;
     }
 }
