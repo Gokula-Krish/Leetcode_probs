@@ -7,8 +7,7 @@ class Solution {
         while(pq.size()>1){
             int x=pq.poll();
             int y=pq.poll();
-            if(x==y){}
-            else if(x!=y){
+            if(x!=y){
                 int z=Math.abs(y-x);
                 pq.add(z);
             }
