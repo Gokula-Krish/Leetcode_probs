@@ -28,36 +28,28 @@ class GFG
     }
 }
 // } Driver Code Ends
-
-
 //User function Template for Java
-
 class Solution{
-
-    static HashMap<Integer,Boolean> map=new HashMap();
     static Boolean isSubsetSum(int N, int arr[], int sum){
         // code here
-        map.clear();
-        return recurse(arr,sum,0);
-    }
-    static boolean recurse(int[] arr,int t,int l){
-        if(map.containsKey(t)){
-            return map.get(t);
+        boolean[][] dp=new boolean[N+1][sum+1];
+        for(int i=0;i<=sum;i++){
+            dp[0][i]=false;
         }
-        if(t<0){
-            return false;
+        for(int i=0;i<=N;i++){
+            dp[i][0]=true;
         }
-        if(t==0){
-            return true;
-        }
-        for(int i=l;i<arr.length;i++){
-            int r=t-arr[i];
-            if(recurse(arr,(t-arr[i]),i+1)){
-                map.put(t,true);
-                return true;
+        
+        for(int i=1;i<=N;i++){
+            for(int j=1;j<=sum;j++){
+                if(arr[i-1]<=j){
+                    dp[i][j]=(dp[i-1][j] || dp[i-1][j-arr[i-1]]);
+                }
+                else{
+                    dp[i][j]=dp[i-1][j];
+                }
             }
         }
-        map.put(t,false);
-        return false;
+        return dp[N][sum];
     }
 }
