@@ -31,8 +31,8 @@ class Solution {
                 stack.push(c);
             }
         }
-        for(int a:stack){
-            total+=a;
+        while(!stack.empty()){
+            total+=stack.pop();
         }
         return total;
     }
