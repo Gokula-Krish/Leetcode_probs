@@ -57,15 +57,14 @@ class Solution {
                 if(c.right!=null && !set.contains(c.right)){
                     q.add(c.right);
                     set.add(c.right);
-                }
-                
+                } 
             }
             level++;
             if(level==k){
                 for(TreeNode node:q){
                     list.add(node.val);
                 }
-                break;
+                return list;
             }
         }
         return list;
