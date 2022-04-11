@@ -12,8 +12,7 @@ class Solution {
                 r+=1;
             }
             else{
-                int diff=prices[r]-prices[l];
-                max=Math.max(max,diff);
+                max=Math.max(max,prices[r]-prices[l]);
                 r+=1;
             }
         }
