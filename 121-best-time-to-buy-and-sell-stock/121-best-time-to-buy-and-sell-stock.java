@@ -13,7 +13,7 @@ class Solution {
             }
             else{
                 max=Math.max(max,prices[r]-prices[l]);
-                r++;
+                r+=1;
             }
         }
         return max;
