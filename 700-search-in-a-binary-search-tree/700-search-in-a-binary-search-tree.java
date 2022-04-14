@@ -14,23 +14,16 @@
  * }
  */
 class Solution {
-    TreeNode node=null;
-    public boolean contains(TreeNode root,int val){
-        if(root==null){
-            return false;
-        }
-        if(root.val==val){
-            node=root;
-        }
-        return root.val==val || contains(root.left,val) || contains(root.right,val);
-    }
     public TreeNode searchBST(TreeNode root, int val) {
         if(root==null){
-            return null;
+            return root;
         }
-        if(contains(root,val)){
-            return node;
+        else if(root.val>val){
+            return searchBST(root.left,val);
         }
-        return node;
+        else if(root.val<val){
+            return searchBST(root.right,val);
+        }
+        return root;
     }
 }
