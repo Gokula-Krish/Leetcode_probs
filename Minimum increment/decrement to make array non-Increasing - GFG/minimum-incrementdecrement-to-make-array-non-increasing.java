@@ -11,19 +11,17 @@ import java.util.PriorityQueue;
 class Solution { 
 	public static int minOperations(int a[], int n) { 
 	    // code here
-	   int cou = 0; 
-
-		PriorityQueue<Integer> pq = new PriorityQueue<>(); 
-		for (int i = 0; i < n; i++) 
-		{ 
-			if (!pq.isEmpty() && pq.peek() < a[i]) 
-			{ 
-				cou += a[i] - pq.remove(); 
-				pq.add(a[i]); 
-			} 
-			pq.add(a[i]); 
-		} 
-		return cou; 
+	   int c=0;
+	   PriorityQueue<Integer> pq=new PriorityQueue();
+	   for(int i=0;i<n;i++){
+	       if(!pq.isEmpty() && pq.peek()<a[i]){
+	           c+=a[i]-pq.peek();
+	           pq.poll();
+	           pq.add(a[i]);
+	       }
+	       pq.add(a[i]);
+	   }
+	   return c;
 	} 
 } 
 
