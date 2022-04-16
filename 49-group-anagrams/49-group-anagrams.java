@@ -13,11 +13,6 @@ class Solution {
                 map.get(s1).add(s);
             }
         }
-        List<List<String>> ls=new ArrayList();
-        for(Map.Entry m:map.entrySet()){
-            ls.add((ArrayList)m.getValue());
-          //  System.out.println(m.getValue());
-        }
-        return ls;
+        return new ArrayList(map.values());
     }
 }
