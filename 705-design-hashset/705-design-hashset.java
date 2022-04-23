@@ -1,5 +1,5 @@
 class MyHashSet {
-    int[] set=new int[100000000];
+    int[] set=new int[(int)1e6+1];
     public MyHashSet() {
         
     }
