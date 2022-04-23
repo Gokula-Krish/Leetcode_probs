@@ -18,20 +18,12 @@ class Solution {
         if(root==null){
             return "";
         }
-        String l1=tree2str(root.left);
-        String l2=tree2str(root.right);
-        String str=root.val+"";
-        if(l1.equals("") && !l2.equals("")){
-            str+="()"+"("+l2+")";
-            return str;
+        if(root.left==null && root.right==null){
+            return root.val+"";
         }
-        if(!l1.equals("")){
-            str+="("+l1+")";
+        if(root.right==null){
+            return root.val+"("+tree2str(root.left)+")";
         }
-        if(!l2.equals("")){
-            str+="("+l2+")";
-        }
-        
-        return str;
+        return root.val+"("+tree2str(root.left)+")"+"("+tree2str(root.right)+")";
     }
 }
