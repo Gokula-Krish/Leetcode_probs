@@ -1,8 +1,8 @@
 class Solution {
-    public int houseRob1(int[] nums){
+    public int houseRob1(int[] nums,int l,int r){
         int rob1=0,rob2=0,t;
-        for(int i:nums){
-            t=Math.max(i+rob1,rob2);
+        for(int i=l;i<r;i++){
+            t=Math.max(nums[i]+rob1,rob2);
             rob1=rob2;
             rob2=t;
         }
@@ -13,6 +13,6 @@ class Solution {
         if(n==1){
             return nums[0];
         }
-        return Math.max(houseRob1(Arrays.copyOfRange(nums,0,n-1)),houseRob1(Arrays.copyOfRange(nums,1,n)));
+        return Math.max(houseRob1(nums,0,n-1),houseRob1(nums,1,n));
     }
 }
