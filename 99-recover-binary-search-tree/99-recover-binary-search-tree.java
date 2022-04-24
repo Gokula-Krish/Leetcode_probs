@@ -43,14 +43,13 @@ class Solution {
                     if(n1==null){
                         n1=ls.get(i);
                     }
-                        n2=ls.get(i);
+                    n2=ls.get(i);
                 }
                 else if(ls.get(i).val>ls.get(i-1).val && ls.get(i).val>ls.get(i+1).val){
-                   //// System.out.println(ls.get(i).val);
                     if(n1==null){
                         n1=ls.get(i);
                     }
-                        n2=ls.get(i);
+                    n2=ls.get(i);
                 }
             }
         }
@@ -59,7 +58,5 @@ class Solution {
             n1.val=n2.val;
             n2.val=t;
         }
-        
-        System.out.println(n1.val+"------"+n2.val);
     }
 }
