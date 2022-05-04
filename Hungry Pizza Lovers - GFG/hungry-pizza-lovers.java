@@ -49,7 +49,7 @@ class Array {
 //User function Template for Java
 
 class Complete{
-    static class Pair{
+     static class Pair{
         int data,in;
         Pair(int data,int in){
             this.data=data;
@@ -78,6 +78,7 @@ class Complete{
         }
         return ans;
     }
+    
 }
 
 
