@@ -10,7 +10,8 @@ class Solution {
     public String removeDuplicates(String s, int k) {
         Stack<Pair> stack=new Stack();
         int c=1;
-        for(char ch:s.toCharArray()){
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
             if(stack.empty()){
                 stack.push(new Pair(ch,1));
             }
@@ -21,13 +22,11 @@ class Solution {
                 stack.push(new Pair(ch,stack.peek().count+1));
                 c=stack.peek().count+1;
                 c=k%c;
-               // System.out.println(ch+"------"+c);
                 if(c==k){
                     while(c!=0){
                         stack.pop();
                         c--;
                     }
-                    
                 }
             }
         }
