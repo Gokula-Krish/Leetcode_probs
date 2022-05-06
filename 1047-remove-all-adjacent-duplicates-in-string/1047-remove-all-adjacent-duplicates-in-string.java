@@ -16,6 +16,7 @@ class Solution {
         while(!stack.empty()){
             sb.append(stack.pop());
         }
-        return new String(sb.reverse());
+        sb.reverse();
+        return new String(sb);
     }
 }
