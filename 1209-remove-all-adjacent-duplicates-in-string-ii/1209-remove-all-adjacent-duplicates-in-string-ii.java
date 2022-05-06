@@ -19,8 +19,9 @@ class Solution {
                 stack.push(new Pair(ch,1));
             }
             else if(stack.peek().val==ch){
-                stack.push(new Pair(ch,stack.peek().count+1));
                 c=stack.peek().count+1;
+                stack.push(new Pair(ch,c));
+                c++;
                 c=k%c;
                 if(c==k){
                     while(c!=0){
