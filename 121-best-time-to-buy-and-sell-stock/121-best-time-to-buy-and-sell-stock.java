@@ -9,12 +9,11 @@ class Solution {
         while(l<r && r<n){
             if(prices[l]>prices[r]){
                 l=r;
-                r+=1;
             }
             else{
                 max=Math.max(max,prices[r]-prices[l]);
-                r+=1;
             }
+            r++;
         }
         return max;
     }
