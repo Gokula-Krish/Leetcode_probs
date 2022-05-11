@@ -33,23 +33,22 @@ class Solution{
     //with sum equal to given sum.
     static String largestNumber(int n, int sum){
         // add your code here
-        String str="";int c=0;
         StringBuilder sb=new StringBuilder();
-        while(sum>=9 && c<n){
-            sum-=9;
-            sb.append(9);
-            c++;
+        int c=0;
+        while(sum>=0 && c<n){
+            if(sum>=9){
+                sb.append(9);
+                sum-=9;
+            }
+            else if(sum==0){
+                sb.append(0);
+            }
+            else{
+                sb.append(sum);
+                sum-=sum;
+            }c++;
         }
-        c=sb.length();
-        while(sum!=0 && c<n){
-            sb.append(sum);
-            sum-=sum;
-            c++;
-        }
-        for(int i=c;i<n;i++){
-            sb.append(0);
-        }
-        return sum>0?String.valueOf(-1):new String(sb);
+        return sum!=0?String.valueOf(-1):new String(sb);
     }
 }
 
