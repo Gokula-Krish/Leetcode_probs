@@ -26,14 +26,8 @@ class Solution {
         if(node==null){
             return;
         }
-        if(node!=null){
-            ls.add(node.val);
-        }
-        if(node.child!=null){
-            recursion(node.child);
-        }
-        if(node.next!=null){
-            recursion(node.next);
-        }
+        ls.add(node.val);
+        recursion(node.child);
+        recursion(node.next);
     }
 }
