@@ -14,7 +14,6 @@
  * }
  */
 class Solution {
-    int i;
     HashMap<Integer,Integer> map;
     public TreeNode buildTree(TreeNode root,int[] postorder,int[] inorder,int l,int r,int pl,int pr){
         if(l>r){
@@ -27,7 +26,6 @@ class Solution {
         return root;
     }
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        i=inorder.length-1;
         map=new HashMap<Integer,Integer>();
         for(int i=0;i<inorder.length;i++){
             map.put(inorder[i],i);
