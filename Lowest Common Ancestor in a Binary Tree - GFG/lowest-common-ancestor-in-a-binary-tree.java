@@ -133,11 +133,7 @@ class Solution{
 		    return root;
 		}
 		if(left!=null && right!=null){
-		  //  System.out.println("root: "+root.data+"--"+left.data+"--"+right.data);
 		    return root;
-		}
-		if(left==null && right==null){
-		    return null;
 		}
 		return left==null?right:left;
 	}
