@@ -120,38 +120,26 @@ class Node
 
 class Solution{
     //Function to return the lowest common ancestor in a Binary Tree.
-    ArrayList<Node> list1=new ArrayList();
-    ArrayList<ArrayList<Node>> ans=new ArrayList();
-    public void recurpath(Node root,int p,int q){
-        if(root==null){
-            return;
-        }
-        list1.add(root);
-        if(root.data==p){
-            ans.add(new ArrayList(list1));
-        }
-        if(root.data==q){
-            ans.add(new ArrayList(list1));
-        }
-        recurpath(root.left,p,q);
-        recurpath(root.right,p,q);
-        list1.remove(list1.size()-1);
-    }
 	Node lca(Node root, int n1,int n2){
 		// Your code here
-		recurpath(root,n1,n2);
-        Node anscestor=null;
-        int n=Math.min(ans.get(0).size(),ans.get(1).size());
-        ArrayList<Node> l1=ans.get(0);
-        ArrayList<Node> l2=ans.get(1);
-        for(int i=0;i<n;i++){
-            if(l1.get(i)==l2.get(i)){
-                anscestor=l1.get(i);
-            }
-            if(l1.get(i)!=l2.get(i)){
-                break;
-            }
-        }
-        return anscestor;
+		if(root==null){
+		    return null;
+		}
+		
+		Node left=lca(root.left,n1,n2);
+		Node right=lca(root.right,n1,n2);
+		if(root.data==n1 || root.data==n2){
+		  //  System.out.println("Ans: "+root.data);
+		    return root;
+		}
+		if(left!=null && right!=null){
+		  //  System.out.println("root: "+root.data+"--"+left.data+"--"+right.data);
+		    return root;
+		}
+		if(left==null && right==null){
+		    return null;
+		}
+		return left==null?right:left;
 	}
 }
+
