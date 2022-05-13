@@ -32,21 +32,11 @@ class Solution{
         int len=0;
         char[] chS=S.toCharArray();
         while(l<=r && l<=n && r<=n){
-            if(l==r){
-                set.add(chS[r]);
-                len=Math.max(len,r-l+1);
-             //   System.out.println(len+" if   ("+l+","+r+")");
-                r++;
-            }
-            else if(set.contains(chS[r])){
-                
-               // System.out.println(chS[l]);
+            if(set.contains(chS[r])){
                 set.remove(chS[l]);
-               // System.out.println(len+"   ("+l+","+r+")");
                 l++;
             }
             else{
-                
                 set.add(chS[r]);
                 len=Math.max(len,r-l+1);
                 r++;
