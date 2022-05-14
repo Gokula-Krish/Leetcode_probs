@@ -26,7 +26,6 @@ class Solution {
         int min=Integer.MAX_VALUE;
         while(l<=r && r<=n){
             if(check(count,count1)){
-               // System.out.println(l+"--EQUALS--"+r);
                 int m=r-l;
                 if(m<=min){
                     min=m;
@@ -40,7 +39,6 @@ class Solution {
             }
             else{
                 if(r<n){
-                   // System.out.println(l+"----"+r);
                     char c=s.charAt(r);
                     if(count[c-'A']!=0){
                         count1[c-'A']++;
@@ -52,7 +50,6 @@ class Solution {
         if(start==-1 && end==-1){
             return "";
         }
-       // System.out.println(Arrays.toString(count)+"---"+Arrays.toString(count1));
         return s.substring(start,end);
     }
 }
