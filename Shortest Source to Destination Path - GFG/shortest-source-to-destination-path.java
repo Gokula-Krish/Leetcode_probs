@@ -26,10 +26,7 @@ class GFG {
         }
     }
 }// } Driver Code Ends
-
-
 // User function Template for Java
-
 class Solution {
     public boolean isValid(int[][] A,boolean[][] visited,int r,int c,int N,int M){
         return (r>=0 && c>=0 && r<N && c<M && !visited[r][c] && A[r][c]==1);
