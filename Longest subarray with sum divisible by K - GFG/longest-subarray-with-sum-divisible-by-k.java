@@ -31,9 +31,6 @@ class Solution{
                map.put(rem,i);
            }
        }
-       if(sum%k==0){
-           return n;
-       }
        return max;
     }
 }
