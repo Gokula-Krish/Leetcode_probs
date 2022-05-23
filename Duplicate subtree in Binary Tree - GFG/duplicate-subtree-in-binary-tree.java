@@ -118,7 +118,7 @@ class Node
 }
  */
 class Solution {
-    HashMap<String,Node> map=new HashMap();
+    HashSet<String> set=new HashSet();
     boolean ans=false;
      public String preOrder(Node root){
         if(root==null){
@@ -130,11 +130,11 @@ class Solution {
         str+=preOrder(root.right);
         String[] sp=str.split(",");
         if(sp.length>1){
-            if(map.containsKey(str)){
+            if(set.contains(str)){
                 ans=true;
             }
             else{
-                map.put(str,root);
+                set.add(str);
             }
         }
         return str;
