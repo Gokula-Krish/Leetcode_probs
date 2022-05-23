@@ -131,14 +131,12 @@ class Solution {
         String[] sp=str.split(",");
         if(sp.length>1){
             if(map.containsKey(str)){
-               // System.out.println(str);
                 ans=true;
             }
             else{
                 map.put(str,root);
             }
         }
-       // System.out.println(str);
         return str;
     }
     int dupSub(Node root) {
