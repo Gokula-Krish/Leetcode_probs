@@ -36,37 +36,26 @@ class Solution {
             map.put(c,map.getOrDefault(c,0)+1);
         }
         int len=map.size();
-      //  System.out.println(map+"-------"+map.size());
         map.clear();
         while(l<=r && r<=n){
             char c='0';
-            
             if(map.size()==len){
-              //  System.out.println("Got it..."+r+"--"+c);
-              //  System.out.println("Map:"+map);
                 while(map.size()==len){
                     c=s.charAt(l);
                     map.put(c,map.get(c)-1);
                     if(map.get(c)==0){
                         map.remove(c);
                     }
-                  //  System.out.println(map);
-                  //  System.out.println(s.substring(l,r));
                     min=Math.min(min,r-l);
                     l++;
                 }
-              //  System.out.println(min+"..."+l+"..."+r);
-                
-              //  System.out.println(map);
             }
             if(r<n){
                 c=s.charAt(r);
             }
-           // System.out.println("INto map: "+c);
             map.put(c,map.getOrDefault(c,0)+1);
             r++;
         }
-    //    System.out.println("Final: "+map);
         return min;
     }
 }
