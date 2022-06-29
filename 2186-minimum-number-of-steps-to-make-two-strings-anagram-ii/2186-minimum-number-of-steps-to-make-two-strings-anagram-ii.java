@@ -8,10 +8,10 @@ class Solution {
         for(char c:t.toCharArray()){
             count1[c-'a']++;
         }
-        int s1=0,s2=0;
+        int sum=0;
         for(int i=0;i<26;i++){
-            s1+=Math.abs(count[i]-count1[i]);
+            sum+=Math.abs(count[i]-count1[i]);
         }
-        return s1;
+        return sum;
     }
 }
