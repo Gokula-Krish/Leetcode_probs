@@ -38,19 +38,18 @@ class Solution{
         for(int[] arr:edges){
             graph[arr[0]][arr[1]]=1;
         }
-        dfs(new boolean[n],s,graph,d);
+        dfs(s,graph,d);
         return count;
     }
     int count=0;
-    public void dfs(boolean[] visited,int i,int[][] adj,int d){
+    public void dfs(int i,int[][] adj,int d){
         if(i==d){
             count++;
             return;
         }
-     //   visited[i]=true;
         for(int j=0;j<adj[i].length;j++){
             if(adj[i][j]==1){
-                dfs(visited,j,adj,d);
+                dfs(j,adj,d);
             }
         }
     }
