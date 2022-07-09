@@ -29,6 +29,12 @@ class Solution {
             for(int i=0;i<4;i++){
                 int pX=pair[0]+row[i];
                 int pY=pair[1]+col[i];
+                if(c==A[0].length || r==A.length){
+                    pac=true;
+                }
+                if(c==-1 || r==-1){
+                    
+                }
                 if(isValid(pair,pX,pY,visited,A)){
                     q.add(new int[]{pX,pY});
                     visited[pX][pY]=true;
