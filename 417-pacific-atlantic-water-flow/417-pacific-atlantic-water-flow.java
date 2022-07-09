@@ -28,19 +28,16 @@ class Solution {
     int[] col={1,-1,0,0};
     public void bfs(int[][] A,int r,int c,boolean[][] ocean){
         Queue<int[]> q=new LinkedList();
-        boolean[][] visited=new boolean[A.length][A[0].length];
         q.add(new int[]{r,c});
-        visited[r][c]=true;
         ocean[r][c]=true;
         while(!q.isEmpty()){
             int[] pair=q.poll();
             for(int i=0;i<4;i++){
                 int pX=pair[0]+row[i];
                 int pY=pair[1]+col[i];
-                if(isValid(pair,pX,pY,visited,A)){
+                if(isValid(pair,pX,pY,ocean,A)){
                     q.add(new int[]{pX,pY});
                     ocean[pX][pY]=true;
-                    visited[pX][pY]=true;
                 }
             }
         }
