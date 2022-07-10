@@ -9,26 +9,26 @@ class Solution {
                 }
             }
         }
-            while(!q.isEmpty()){
-                boolean did=false;
-                int n=q.size();
-                while(n-->0){
-                    int[] pair=q.poll();
-                    for(int i=0;i<4;i++){
-                        int pX=pair[0]+r[i];
-                        int pY=pair[1]+c[i];
-                        if(isValid(grid,pX,pY)){
-                            did=true;
-                            grid[pX][pY]=2;
-                            q.add(new int[]{pX,pY});
-                        }
+        while(!q.isEmpty()){
+            boolean did=false;
+            int n=q.size();
+            while(n-->0){
+                int[] pair=q.poll();
+                for(int i=0;i<4;i++){
+                    int pX=pair[0]+r[i];
+                    int pY=pair[1]+c[i];
+                    if(isValid(grid,pX,pY)){
+                        did=true;
+                        grid[pX][pY]=2;
+                        q.add(new int[]{pX,pY});
                     }
                 }
-                if(did){d++;}
-                if(allRotten(grid)){
-                    return d;
-                }
             }
+            if(did){d++;}
+            if(allRotten(grid)){
+                return d;
+            }
+        }
         return !allRotten(grid)?-1:d;
     }
     int[] r={0,0,1,-1};
