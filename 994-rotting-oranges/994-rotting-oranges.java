@@ -25,9 +25,6 @@ class Solution {
                 }
             }
             if(did){d++;}
-            if(allRotten(grid)){
-                return d;
-            }
         }
         return !allRotten(grid)?-1:d;
     }
