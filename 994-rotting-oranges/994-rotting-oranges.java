@@ -24,7 +24,6 @@ class Solution {
                         }
                     }
                 }
-                //System.out.println(Arrays.deepToString(grid));
                 if(did){d++;}
                 if(allRotten(grid)){
                     return d;
