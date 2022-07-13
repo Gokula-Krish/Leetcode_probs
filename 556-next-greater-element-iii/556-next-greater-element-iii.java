@@ -5,17 +5,12 @@ class Solution {
         int x=0;
         while(n!=0){
             int a=n%10;
-            list.addFirst(a);
+            list.add(0,a);
             n/=10;
             x++;
         }
-        int[] nums=new int[x];
-        int y=0;
-        for(int l1:list){
-            nums[y++]=l1;
-        }
         int k=-1;
-        for(int i=0;i<nums.length-1;i++){
+        for(int i=0;i<x-1;i++){
             if(list.get(i)<list.get(i+1)){
                 k=i;
             }
@@ -25,23 +20,19 @@ class Solution {
             return -1;
         }
         int l=-1;
-        for(int i=0;i<nums.length;i++){
-            if(nums[k]<nums[i] && i>k){
+        for(int i=0;i<x;i++){
+            if(list.get(k)<list.get(i) && i>k){
                 l=i;
             }
         }
-        int t=nums[l];
-        nums[l]=nums[k];
-        nums[k]=t;
-        int s=k+1,e=nums.length-1;
+        Collections.swap(list,l,k);
+        int s=k+1,e=x-1;
         while(s<e){
-            t=nums[s];
-            nums[s]=nums[e];
-            nums[e]=t;
+            Collections.swap(list,s,e);
             s++;e--;
         }
         str="";
-        for(int a:nums){
+        for(int a:list){
             str+=a;
         }
         int a=-1;
@@ -49,7 +40,6 @@ class Solution {
             a=Integer.parseInt(str);
         }
         catch(Exception ex){return -1;}
-       // System.out.println(a+"-----"+b);
         if(a<=b){
             return -1;
         }
