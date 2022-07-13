@@ -22,20 +22,7 @@ class Solution {
         }
         String str="";
         if(k==-1){
-            Arrays.sort(nums);
-            
-            for(int a:nums){
-                str+=a;
-            }
-            int a=-1;
-            try{
-                a=Integer.parseInt(str);
-            }
-            catch(Exception e){return -1;}
-            if(a<=b){
-                return -1;
-            }
-            return a;
+            return -1;
         }
         int l=-1;
         for(int i=0;i<nums.length;i++){
