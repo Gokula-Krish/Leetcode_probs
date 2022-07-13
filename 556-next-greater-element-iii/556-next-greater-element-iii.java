@@ -16,7 +16,7 @@ class Solution {
         }
         int k=-1;
         for(int i=0;i<nums.length-1;i++){
-            if(nums[i]<nums[i+1]){
+            if(list.get(i)<list.get(i+1)){
                 k=i;
             }
         }
@@ -51,7 +51,6 @@ class Solution {
         catch(Exception ex){return -1;}
        // System.out.println(a+"-----"+b);
         if(a<=b){
-            
             return -1;
         }
         return a;
