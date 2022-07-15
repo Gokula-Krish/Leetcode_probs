@@ -1,10 +1,11 @@
 class Solution {
     public int maxAreaOfIsland(int[][] grid) {
-        int max=Integer.MIN_VALUE;
+        int max=0;
+        boolean[][] visited=new boolean[grid.length][grid[0].length];
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[i].length;j++){
-                if(grid[i][j]==1){
-                    max=Math.max(max,dfs(grid,i,j,new boolean[grid.length][grid[0].length]));
+                if(!visited[i][j] && grid[i][j]==1){
+                    max=Math.max(max,dfs(grid,i,j,visited));
                 }
             }
         }
