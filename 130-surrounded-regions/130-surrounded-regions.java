@@ -5,18 +5,14 @@ class Solution {
             if(board[0][i]=='O'){
                 bfs(0,i,board);
             }
-        }
-        for(int i=0;i<board.length;i++){
-            if(board[i][0]=='O' || board[i][0]=='S'){
-                bfs(i,0,board);
-            }
-        }
-        for(int i=0;i<board[0].length;i++){
             if(board[board.length-1][i]=='O' || board[board.length-1][i]=='S'){
                 bfs(board.length-1,i,board);
             }
         }
         for(int i=0;i<board.length;i++){
+            if(board[i][0]=='O' || board[i][0]=='S'){
+                bfs(i,0,board);
+            }
             if(board[i][board[0].length-1]=='O' || board[i][board[0].length-1]=='S'){
                 bfs(i,board[0].length-1,board);
             }
