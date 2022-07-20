@@ -4,8 +4,8 @@ class Solution {
             return true;
         }
         int k=0,j=0;
-        for(int i=0;i<t.length();i++){
-            if(j<s.length() && t.charAt(i)==s.charAt(j)){
+        for(int i=0;j<s.length() && i<t.length();i++){
+            if(t.charAt(i)==s.charAt(j)){
                 j++;k++;
             }
         }
