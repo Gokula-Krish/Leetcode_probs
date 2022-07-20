@@ -7,15 +7,15 @@ class Solution {
         }
         char[] arr=s.toCharArray();
         for(Map.Entry<String,Integer> e:map.entrySet()){
-            String str=e.getKey();
+            char[] arr1=(e.getKey()).toCharArray();
             int k=0,j=0;
-            for(int i=0;i<s.length() && j<str.length();i++){
-                if(arr[i]==str.charAt(j)){
+            for(int i=0;i<arr.length && j<arr1.length;i++){
+                if(arr[i]==arr1[j]){
                     j++;k++;
                 }
             }
-            if(k==str.length()){
-                count+=map.get(str);
+            if(k==arr1.length){
+                count+=map.get(e.getKey());
             }
         }
         return count;
