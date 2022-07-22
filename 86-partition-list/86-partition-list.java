@@ -17,7 +17,7 @@ class Solution {
                 h1.next=h;
                 h1=h1.next;
             }
-            else if(h.val>=x){
+            else{
                 h2.next=h;
                 h2=h2.next;
             }
