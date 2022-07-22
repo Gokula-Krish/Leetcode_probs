@@ -25,6 +25,6 @@ class Solution {
         }
         h1.next=headS.next;
         h2.next=null;
-        return headF.next==null?headS.next:headF.next;
+        return headF.next;
     }
 }
