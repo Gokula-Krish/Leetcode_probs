@@ -15,11 +15,11 @@ class Solution {
         while(h!=null){
             if(h.val<x){
                 h1.next=h;
-                h1=h;
+                h1=h1.next;
             }
             else{
                 h2.next=h;
-                h2=h;
+                h2=h2.next;
             }
             h=h.next;
         }
