@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode headF=new ListNode(-1111),headS=new ListNode(-1111),h1=headF,h2=headS;
+        ListNode headF=new ListNode(-1),headS=new ListNode(-1),h1=headF,h2=headS;
         ListNode h=head;
         while(h!=null){
             if(h.val<x){
