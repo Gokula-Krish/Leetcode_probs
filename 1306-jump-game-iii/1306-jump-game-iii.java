@@ -12,6 +12,9 @@ class Solution {
             int s=top-arr[top];
             int e=top+arr[top];
             visited[top]=true;
+            if(s>=0 && e<arr.length && visited[s] && visited[e]){
+                return false;
+            }
             if(s>=0 && !visited[s]){
                 stack.push(s);
             }
