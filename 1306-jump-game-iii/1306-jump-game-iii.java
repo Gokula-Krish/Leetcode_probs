@@ -1,23 +1,27 @@
 class Solution {
-    boolean[] visited;
-    int[] arr;
-    private boolean dfs(int start){
-        if(start < 0 || start >= arr.length)
-            return false;
-        
-        if(arr[start] == 0)
-            return true;
-        
-        if(visited[start])
-            return false;
-        
-        visited[start] = true;
-        
-        return dfs(start + arr[start]) || dfs(start - arr[start]);
-    }
     public boolean canReach(int[] arr, int start) {
-        this.visited = new boolean[arr.length];
-        this.arr = arr;
-        return dfs(start);
+        int n=arr.length;
+        boolean[] visited=new boolean[n];
+        Stack<Integer> stack=new Stack();
+        stack.push(start);
+        while(!stack.empty()){
+            int top=stack.pop();
+            if(arr[top]==0){
+                return true;
+            }
+            int s=top-arr[top];
+            int e=top+arr[top];
+            if(visited[top]){
+                return false;
+            }
+            visited[top]=true;
+            if(s>=0 && !visited[s]){
+                stack.push(s);
+            }
+            if(e<n && !visited[e]){
+                stack.push(e);
+            }
+        }
+        return false;
     }
 }
