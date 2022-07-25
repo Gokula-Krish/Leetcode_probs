@@ -6,15 +6,11 @@ class Solution {
         stack.push(start);
         while(!stack.empty()){
             int top=stack.pop();
-             if(visited[top]){
-                return false;
-            }
             if(arr[top]==0){
                 return true;
             }
             int s=top-arr[top];
             int e=top+arr[top];
-           
             visited[top]=true;
             if(s>=0 && !visited[s]){
                 stack.push(s);
