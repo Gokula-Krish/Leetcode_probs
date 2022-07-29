@@ -3,8 +3,8 @@ class Solution {
         if(s.length()!=t.length()){
             return false;
         }
-        LinkedHashMap<Character,Character> lh=new LinkedHashMap<Character,Character>();
-        LinkedHashMap<Character,Character> lh1=new LinkedHashMap<Character,Character>();
+        HashMap<Character,Character> lh=new HashMap<Character,Character>();
+        HashMap<Character,Character> lh1=new HashMap<Character,Character>();
         for(int i=0;i<s.length();i++){
             if((lh1.containsKey(t.charAt(i)) && lh1.get(t.charAt(i))!=s.charAt(i))
               || (lh.containsKey(s.charAt(i)) && lh.get(s.charAt(i))!=t.charAt(i))){
