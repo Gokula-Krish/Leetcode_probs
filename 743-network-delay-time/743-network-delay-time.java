@@ -1,7 +1,7 @@
 class Solution {
     int[] dist;
     public int networkDelayTime(int[][] times, int n, int k) {
-        bellman_ford(n,times,k);
+        bellmanFord(n,times,k);
         int max=-1;
         for(int i=1;i<=n;i++){
             if(dist[i]!=100000000 && i!=k){
@@ -13,7 +13,7 @@ class Solution {
         }
         return max;
     }
-    int[] bellman_ford(int V,int[][] A, int S){
+    void bellmanFord(int V,int[][] A, int S){
          dist=new int[V+1];
          Arrays.fill(dist,100000000);
          dist[S]=0;
@@ -25,6 +25,5 @@ class Solution {
                  }
              }
          }
-         return dist;
     }
 }
