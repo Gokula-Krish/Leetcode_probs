@@ -3,7 +3,7 @@ class Solution {
     public int networkDelayTime(int[][] times, int n, int k) {
         bellman_ford(n,times,k);
         int max=Integer.MIN_VALUE;
-        System.out.println(Arrays.toString(dist));
+     //   System.out.println(Arrays.toString(dist));
         for(int i=1;i<=n;i++){
             if(dist[i]!=100000000 && i!=k){
                 max=Math.max(max,dist[i]);   
