@@ -4,10 +4,10 @@ class Solution {
         bellmanFord(n,times,k);
         int max=-1;
         for(int i=1;i<=n;i++){
-            if(dist[i]!=100000000 && i!=k){
+            if(dist[i]!=10000 && i!=k){
                 max=Math.max(max,dist[i]);   
             }
-            else if(dist[i]==100000000){
+            else if(dist[i]==10000){
                 return -1;
             }
         }
@@ -15,7 +15,7 @@ class Solution {
     }
     void bellmanFord(int V,int[][] A, int S){
          dist=new int[V+1];
-         Arrays.fill(dist,100000000);
+         Arrays.fill(dist,10000);
          dist[S]=0;
          for(int i=1;i<=V;i++){
              for(int[] l:A){
