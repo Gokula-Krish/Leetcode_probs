@@ -2,9 +2,7 @@ class Solution {
     public int minAddToMakeValid(String s) {
         int count=0;
         Stack<Character> stack=new Stack();
-        int n=s.length();
-        for(int i=0;i<n;i++){
-            char c=s.charAt(i);
+        for(char c:s.toCharArray()){
             if(c=='('){
                 stack.push(c);
             }
