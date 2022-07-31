@@ -7,7 +7,6 @@ class Solution {
         dist[n]=0;
         boolean[] visited=new boolean[A.length];
         visited[n]=true;
-        
         while(node!=-1 && !visited[node]){
             d++;
             dist[node]=d;
