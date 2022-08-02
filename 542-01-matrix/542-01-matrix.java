@@ -14,7 +14,6 @@ class Solution {
         }
         while(!q.isEmpty()){
             int n=q.size();
-           // while(n-->0){
             int[] pair=q.poll();
             for(int i=0;i<4;i++){
                 int pX=pair[0]+r[i];
@@ -28,7 +27,6 @@ class Solution {
                         visited[pX][pY]=true;
                         q.add(new int[]{pX,pY});
                     }
-                    
                 }
             }
         }
