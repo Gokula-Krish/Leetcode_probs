@@ -14,7 +14,6 @@ class Solution {
                 }
             }
             stack.push(sp[i]);
-            
         }
         return stack.size()==1 && stack.peek().charAt(0)=='#';
     }
