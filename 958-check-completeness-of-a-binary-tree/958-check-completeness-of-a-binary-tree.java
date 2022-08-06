@@ -26,35 +26,29 @@ class Solution {
             nochild=false;
             while(n-->0){
                 TreeNode c=q.poll();
-                if(!ans && c.left!=null){
-                    return false;
-                }
-                if(!ans && c.right!=null){
-                    return false;
-                }
-                if(c.left==null){
-                    ans=false;
-                }
-                if(!ans && c.right!=null){
-                    return false;
-                }
-                if(c.right==null){
-                    ans=false;
-                }
                 if(c.left!=null){
+                    if(!ans){return false;}
                     nochild=true;
                     q.add(c.left);
                 }
+                else{
+                    ans=false;
+                }
                 if(c.right!=null){
+                    if(!ans){return false;}
                     nochild=true;
                     q.add(c.right);
+                }
+                else{
+                    ans=false;
                 }
                 count++;
             }
             int l=(int)Math.pow(2,level);
             if(count!=l && nochild){
                 return false;
-            }level++;
+            }
+            level++;
         }
         return true;
     }
