@@ -19,18 +19,13 @@ class Solution {
         q.add(root);
         int level=0;
          boolean ans=true,nochild=false;
-        TreeNode nodes=new TreeNode(-11);
         while(!q.isEmpty()){
             int n=q.size();
             int count=0;
             ans=true;
-            if(nodes==null){
-                return false;
-            }
             nochild=false;
             while(n-->0){
                 TreeNode c=q.poll();
-                nodes=c;
                 if(c.left!=null){
                     if(!ans){return false;}
                     nochild=true;
