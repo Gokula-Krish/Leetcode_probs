@@ -27,24 +27,20 @@ class Solution {
             while(n-->0){
                 TreeNode c=q.poll();
                 if(!ans && c.left!=null){
-                   // System.out.println(0+"---"+level);
                     return false;
                 }
                 if(!ans && c.right!=null){
-                   /// System.out.println(1+"---"+level);
                     return false;
                 }
                 if(c.left==null){
                     ans=false;
                 }
                 if(!ans && c.right!=null){
-                    ////System.out.println(2+"---"+level);
                     return false;
                 }
                 if(c.right==null){
                     ans=false;
                 }
-                
                 if(c.left!=null){
                     nochild=true;
                     q.add(c.left);
@@ -57,7 +53,6 @@ class Solution {
             }
             int l=(int)Math.pow(2,level);
             if(count!=l && nochild){
-               // System.out.println(3+"----"+level);
                 return false;
             }level++;
         }
