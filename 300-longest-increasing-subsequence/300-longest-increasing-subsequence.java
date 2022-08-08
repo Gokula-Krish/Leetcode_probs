@@ -22,8 +22,9 @@ class Solution {
         // }
         int n=nums.length;
         int[] LIS=new int[nums.length];
-        Arrays.fill(LIS,1);
+        //Arrays.fill(LIS,1);
         for(int i=n-1;i>=0;i--){
+            LIS[i]=1;
             for(int j=i+1;j<n;j++){
                 if(nums[i]<nums[j]){
                     LIS[i]=Math.max(LIS[i],1+LIS[j]);
