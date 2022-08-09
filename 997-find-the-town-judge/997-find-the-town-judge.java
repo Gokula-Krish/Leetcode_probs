@@ -12,7 +12,7 @@ class Solution {
         int j=0,a=0;
         for(int i:t){
             if(j!=0 && i!=0 && i==n-1){
-                if(a!=0){return -1;}
+               // if(a!=0){return -1;}
                 a=j;
             }
             j++;
@@ -22,10 +22,6 @@ class Solution {
                 return -1;
             }
         }
-       // System.out.println(Arrays.toString(t));
-        // if(t[a]!=0){
-        //     return -1;
-        // }
         return a==0?-1:a;
     }
 }
