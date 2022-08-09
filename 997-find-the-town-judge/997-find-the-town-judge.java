@@ -11,8 +11,7 @@ class Solution {
         }
         int j=0,a=0;
         for(int i:t){
-            if(j!=0 && i!=0 && i==n-1){
-               // if(a!=0){return -1;}
+            if(i!=0 && i==n-1){
                 a=j;
             }
             j++;
