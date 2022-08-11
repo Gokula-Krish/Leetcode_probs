@@ -15,13 +15,11 @@ class Solution {
             if(!s1.equals("") && isValid(s1)){
                 ls.add(sb+s1);
             }
-          // System.out.println(sb+"_---"+isValid(s1)+"===="+s1);
             return;
         }
         String ssb="";
         for(int i=j;i<n;i++){
             ssb+=str.charAt(i);
-           // System.out.println(ssb+"----"+sb);
             if(dots<3 && isValid(ssb)){
                 back(sb+ssb+".",str,i+1,dots+1);
             }
