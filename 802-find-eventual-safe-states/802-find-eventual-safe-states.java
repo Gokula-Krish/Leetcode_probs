@@ -2,17 +2,15 @@ class Solution {
     ArrayList<Integer> ls=new ArrayList();
    public boolean dfs(int[][] adj,int v,boolean[] visited,boolean[] reStack){
         if(reStack[v]){
-           // System.out.println("CYCLE: "+v);
             return true;
         }
-        if(visited[v]){
-            return false;
-        }
+       if(visited[v]){
+           return false;
+       }
         visited[v]=true;
         reStack[v]=true;
-        for(int i=0;i<adj[v].length;i++){
-           // System.out.println("NODES in "+v+" are "+i);
-            if(dfs(adj,adj[v][i],visited,reStack)){
+        for(int i:adj[v]){
+            if(dfs(adj,i,visited,reStack)){
                 return true;
             }
         }
@@ -25,14 +23,10 @@ class Solution {
         boolean[] dfsVisit=new boolean[n];
        // Arrays.fill(safe,true);
         for(i=0;i<n;i++){
-            if(dfs(graph,i,visited,dfsVisit)){
-                
-            }
-            else{
+            if(!dfs(graph,i,visited,dfsVisit)){
                 ls.add(i);
             }
-        }
-        
+        }        
         return ls;
     }
 }
