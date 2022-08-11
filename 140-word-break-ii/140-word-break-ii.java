@@ -10,8 +10,7 @@ class Solution {
         for(int i=j;i<n;i++){
             str+=s.charAt(i);
             if(set.contains(str)){
-                if(i<n-1)backTrack(s,t+str+" ",i+1);
-                else backTrack(s,t+str,i+1);
+                backTrack(s,t+str+" ",i+1);
             }
         }
     }
