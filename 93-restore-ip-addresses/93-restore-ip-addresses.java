@@ -10,9 +10,12 @@ class Solution {
        
     }
     public void back(String sb,String str,int j,int dots){
+        if(j>=n){
+            return;
+        }
         if(dots==3){
             String s1=str.substring(j,str.length());
-            if(!s1.equals("") && isValid(s1)){
+            if(isValid(s1)){
                 ls.add(sb+s1);
             }
             return;
