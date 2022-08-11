@@ -21,14 +21,15 @@ class Solution {
             }
         }
         if(!sb.isEmpty()){
-            if(sb.toString().equals("..")){
-                if(!stack.empty())stack.pop();
-            }
-            else if(!sb.toString().equals(".")){
-                stack.push(sb.toString());
-            }
+            
         }
-        
+        if(!sb.isEmpty() && sb.toString().equals("..")){
+            if(!stack.empty())stack.pop();
+            sb=new StringBuilder();
+        }
+        else if(!sb.isEmpty() && !sb.toString().equals(".")){
+            stack.push(sb.toString());
+        }
         String str="";
         while(!stack.empty()){
             str="/"+stack.pop()+str;
