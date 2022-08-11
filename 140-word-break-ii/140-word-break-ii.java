@@ -3,7 +3,7 @@ class Solution {
     int n;
     public void backTrack(String s,String t,int j){
         if(j>=n){
-            ls.add(t.trim());
+            ls.add(t);
             return;
         }
         String str="";
