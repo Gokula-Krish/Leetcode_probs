@@ -5,6 +5,8 @@ class Solution {
     public String simplifyPath(String path) {
         Stack<String> stack=new Stack();
         StringBuilder sb=new StringBuilder();
+        StringBuilder dot=new StringBuilder(".");
+        StringBuilder dot2=new StringBuilder("..");
         int n=0;
         for(char c:path.toCharArray()){
             if(c!='/' && (Character.isAlphabetic(c) || isAny(c))){
@@ -12,18 +14,18 @@ class Solution {
                 n++;
             }
             else if(c=='/' && n>0){
-                if(sb.toString().equals("..")){
+                if(sb.compareTo(dot2)==0){
                     if(!stack.empty())
                         stack.pop();
                 }
-                else if(!sb.toString().equals(".")){
+                else if(!(sb.compareTo(dot)==0)){
                     stack.push(sb.toString());
                 }
                 sb=new StringBuilder();
                 n=0;
             }
         }
-        if(!sb.isEmpty() && sb.toString().equals("..")){
+        if(!sb.isEmpty() && sb.compareTo(dot2)==0){
             if(!stack.empty())stack.pop();
         }
         else if(!sb.isEmpty() && !sb.toString().equals(".")){
