@@ -1,0 +1,63 @@
+class Solution {
+    public boolean isAny(char c){
+        return (!Character.isAlphabetic(c) && !Character.isDigit(c)) || Character.isDigit(c);
+    }
+    public String simplifyPath(String path) {
+        Stack<String> stack=new Stack();
+        StringBuilder sb=new StringBuilder();
+        int co=0;
+        for(char c:path.toCharArray()){
+            if(c!='/' && (Character.isAlphabetic(c) || isAny(c))){
+                sb.append(c);
+            }
+            else if(c=='/' && sb.length()>0){
+                if(sb.toString().equals("..")){
+                    if(!stack.empty())
+                        stack.pop();
+                }
+                else if(!sb.toString().equals(".")){
+                    stack.push(sb.toString());
+                }
+                sb=new StringBuilder();
+            }
+        }
+        System.out.println(stack+"==="+sb);
+        if(!sb.isEmpty() && sb.toString().equals("..")){
+            if(!stack.empty())stack.pop();
+           // System.out.println("PEEK: "+stack.peek());
+            sb=new StringBuilder();
+        }
+        else if(!sb.isEmpty()){
+            stack.push(sb.toString());
+        }
+        System.out.println(stack);
+        String str="";
+        while(!stack.empty()){
+            if(stack.peek().equals(".")){
+                stack.pop();continue;
+            }
+            else if(stack.peek().equals("..")){
+                System.out.println("OH NO");
+               //  stack.pop();
+               // if(!stack.empty()) 
+               //  while(!stack.empty() && stack.peek().equals("..")){
+               //      stack.pop();
+               //      co++;
+               //  }
+               // // System.out.println("remove stack "+stack);
+               //  System.out.println(co);
+               //  while(!stack.empty() && co-->0 && !stack.peek().equals("..")){
+               //      stack.pop();
+               //  }
+               //  System.out.println(co);
+            }
+            else{
+                str="/"+stack.pop()+str;
+            }
+        }
+        if(str.isEmpty()){
+            return "/";
+        }
+        return str;
+    }
+}
