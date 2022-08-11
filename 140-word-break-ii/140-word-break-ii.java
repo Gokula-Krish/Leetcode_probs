@@ -1,27 +1,22 @@
 class Solution {
-    ArrayList<String> ls=new ArrayList();
-    int n;
-    public void backTrack(String s,String t,int j){
-        if(j==n){
-            ls.add(t.trim());
-            return;
+    List<String> res;
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        res = new ArrayList<>();        
+        backTracking(s, wordDict, new ArrayList<>());        
+        return res;
+    }
+    
+    public void backTracking(String s, List<String> wordDict, List<String> pre){
+        if(s.length() == 0){
+            res.add(String.join(" ", pre));
+            return;     
         }
-        String str="";
-        for(int i=j;i<n;i++){
-            str+=s.charAt(i);
-            if(set.contains(str)){
-                backTrack(s,t+str+" ",i+1);
+        for(String str: wordDict){
+            if(s.startsWith(str)){
+                pre.add(str);
+                backTracking(s.substring(str.length()), wordDict, pre);
+                pre.remove(pre.size() - 1);
             }
         }
-    }
-    HashSet<String> set;
-    public List<String> wordBreak(String s, List<String> wordDict) {
-        n=s.length();
-        set=new HashSet();
-        for(String str:wordDict){
-            set.add(str);
-        }
-        backTrack(s,"",0);
-        return ls;
     }
 }
