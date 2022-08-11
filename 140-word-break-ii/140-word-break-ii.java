@@ -3,7 +3,6 @@ class Solution {
     int n;
     public void backTrack(String s,String t,int j){
         if(j>=n){
-            //System.out.println(t);
             ls.add(t.trim());
             return;
         }
@@ -11,7 +10,8 @@ class Solution {
         for(int i=j;i<n;i++){
             str+=s.charAt(i);
             if(set.contains(str)){
-                backTrack(s,t+str+" ",i+1);
+                if(i<n-1)backTrack(s,t+str+" ",i+1);
+                else backTrack(s,t+str,i+1);
             }
         }
     }
