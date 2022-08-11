@@ -24,17 +24,12 @@ class Solution {
             if(!stack.empty())stack.pop();
             sb=new StringBuilder();
         }
-        else if(!sb.isEmpty()){
+        else if(!sb.isEmpty() && !sb.toString().equals(".")){
             stack.push(sb.toString());
         }
         String str="";
         while(!stack.empty()){
-            if(stack.peek().equals(".")){
-                stack.pop();continue;
-            }
-            else{
                 str="/"+stack.pop()+str;
-            }
         }
         if(str.isEmpty()){
             return "/";
