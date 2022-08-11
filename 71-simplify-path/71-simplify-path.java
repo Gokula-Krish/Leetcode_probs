@@ -20,12 +20,8 @@ class Solution {
                 sb=new StringBuilder();
             }
         }
-        if(!sb.isEmpty()){
-            
-        }
         if(!sb.isEmpty() && sb.toString().equals("..")){
             if(!stack.empty())stack.pop();
-            sb=new StringBuilder();
         }
         else if(!sb.isEmpty() && !sb.toString().equals(".")){
             stack.push(sb.toString());
