@@ -25,10 +25,10 @@ class Solution {
                 n=0;
             }
         }
-        if(!sb.isEmpty() && sb.compareTo(dot2)==0){
+        if(n>0 && sb.compareTo(dot2)==0){
             if(!stack.empty())stack.pop();
         }
-        else if(!sb.isEmpty() && !sb.toString().equals(".")){
+        else if(n>0 && !(sb.compareTo(dot)==0)){
             stack.push(sb.toString());
         }
         String str="";
