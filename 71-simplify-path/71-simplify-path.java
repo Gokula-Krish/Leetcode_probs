@@ -20,16 +20,18 @@ class Solution {
                 sb=new StringBuilder();
             }
         }
-        if(!sb.isEmpty() && sb.toString().equals("..")){
-            if(!stack.empty())stack.pop();
-            sb=new StringBuilder();
+        if(!sb.isEmpty()){
+            if(sb.toString().equals("..")){
+                if(!stack.empty())stack.pop();
+            }
+            else if(!sb.toString().equals(".")){
+                stack.push(sb.toString());
+            }
         }
-        else if(!sb.isEmpty() && !sb.toString().equals(".")){
-            stack.push(sb.toString());
-        }
+        
         String str="";
         while(!stack.empty()){
-                str="/"+stack.pop()+str;
+            str="/"+stack.pop()+str;
         }
         if(str.isEmpty()){
             return "/";
