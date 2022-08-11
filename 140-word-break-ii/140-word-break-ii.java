@@ -2,16 +2,15 @@ class Solution {
     ArrayList<String> ls=new ArrayList();
     int n;
     public void backTrack(String s,String t,int j){
-        if(j>=n){
-            ls.add(t);
+        if(j==n){
+            ls.add(t.trim());
             return;
         }
         String str="";
         for(int i=j;i<n;i++){
             str+=s.charAt(i);
             if(set.contains(str)){
-                if(i<n-1)backTrack(s,t+str+" ",i+1);
-                else backTrack(s,t+str,i+1);
+                backTrack(s,t+str+" ",i+1);
             }
         }
     }
