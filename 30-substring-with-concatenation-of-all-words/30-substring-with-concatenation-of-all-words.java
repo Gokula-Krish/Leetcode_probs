@@ -18,7 +18,8 @@ class Solution {
     }
     public boolean isValid(String str,HashMap<String,Integer> map){
         HashMap<String,Integer> map1=new HashMap();
-        for(int i=0;i<=(str.length()-sub);i+=sub){
+        int n1=str.length();
+        for(int i=0;i<=(n1-sub);i+=sub){
             String s=str.substring(i,i+sub);
             map1.put(s,map1.getOrDefault(s,0)+1);
         }      
