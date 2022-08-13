@@ -35,7 +35,6 @@ class Solution {
                 }
             }
         }
-        //System.out.println(list);
         if(list.size()==1){
             return list.get(0);
         }
@@ -47,7 +46,6 @@ class Solution {
                 TreeNode node=map.get(list.get(i));
                 set.add(node);
             }
-           // System.out.println(set);
             list.clear();
             list.addAll(set);
         }
