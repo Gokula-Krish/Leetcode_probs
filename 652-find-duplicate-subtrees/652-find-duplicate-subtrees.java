@@ -24,12 +24,9 @@ class Solution {
         String left=preOrder(root.left,l+1);
         String right=preOrder(root.right,l+1);
         String str=root.val+","+left+","+right;
-       // System.out.println(str);
         if(map.containsKey(str) && !set.contains(str)){
-         //   System.out.println(str+"--EQUAL--level "+l);
             ls.add(root);
             set.add(str);
-           // ls.add(map.get(str));
         }
         map.put(str,root);
         return str;
