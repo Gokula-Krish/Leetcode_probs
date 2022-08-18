@@ -1,44 +1,29 @@
 class Solution {
-    class Pair{
-        int elem;
-        int freq;
-        Pair(int elem,int freq){
-            this.elem=elem;
-            this.freq=freq;
-        }
-    }
     public int minSetSize(int[] arr) {
-        LinkedHashMap<Integer,Integer> map=new LinkedHashMap();
+        HashMap<Integer,Integer> map=new HashMap();
         for(int i:arr){
             map.put(i,map.getOrDefault(i,0)+1);
         }
-        PriorityQueue<Pair> pq=new PriorityQueue<Pair>(new Comparator<Pair>(){
-           @Override
-            public int compare(Pair p1,Pair p2){
-               // return Integer.compare(p1.freq,p2.freq);
-                if(p1.freq<p2.freq){
-                    return 1;
-                }
-                else if(p1.freq>p2.freq){
-                    return -1;
-                }
-                return 0;
+        int c=0;
+        PriorityQueue<int[]> pq=new PriorityQueue<int[]>(new Comparator<int[]>(){
+            @Override
+            public int compare(int[] a,int[] b){
+                return b[1]-a[1];
             }
         });
-        int size=arr.length;
-        for(Map.Entry m:map.entrySet()){
-            pq.add(new Pair((int)m.getKey(),(int)m.getValue()));
+        for(Map.Entry<Integer,Integer> m:map.entrySet()){
+            pq.add(new int[]{m.getKey(),m.getValue()});
         }
         int n=arr.length;
-        int c=0;
-        while(true){
-            Pair p=pq.poll();
-            size-=p.freq;
+        int sum=0;
+        while(!pq.isEmpty()){
+            int c1=pq.poll()[1];
+            sum+=c1;
             c++;
-            if(size<=(n/2)){
+            if(sum>=(n/2)){
                 return c;
             }
         }
-        
+        return c;
     }
 }
