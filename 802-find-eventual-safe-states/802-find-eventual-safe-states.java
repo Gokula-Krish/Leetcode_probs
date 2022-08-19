@@ -4,7 +4,7 @@ class Solution {
         if(dfsVisit[v]){
             return true;
         }
-       if(visited[v]){
+        if(visited[v]){
            return false;
        }
         visited[v]=true;
