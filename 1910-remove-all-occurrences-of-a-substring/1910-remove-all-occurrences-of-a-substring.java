@@ -16,10 +16,10 @@ class Solution {
                 }
             }
         }
-        String str="";
+        StringBuilder sb=new StringBuilder();
         while(!stack.empty()){
-            str=stack.pop()+str;
+            sb.append(stack.pop());
         }
-        return str;
+        return new String(sb.reverse());
     }
 }
