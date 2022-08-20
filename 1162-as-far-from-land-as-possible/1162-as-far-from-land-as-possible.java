@@ -11,13 +11,8 @@ class Solution {
         int one=0,zero=0;
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                if(mat[i][j]==1){
-                    one++;
-                    q.add(new int[]{i,j,0});
-                }
-                else{
-                    zero++;
-                }
+                if(mat[i][j]==1){one++;q.add(new int[]{i,j,0});}
+                else{zero++;}
             }
         }
         if(zero==(n*n) || one==(n*n)){
@@ -40,7 +35,6 @@ class Solution {
                 }
             }
         }
-      // System.out.println(Arrays.deepToString(mat));
         int max=Integer.MIN_VALUE;
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
