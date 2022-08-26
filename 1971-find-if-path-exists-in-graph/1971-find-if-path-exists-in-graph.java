@@ -5,13 +5,11 @@ class Solution {
         if(des==j){
             visit=true;
         }
-       // System.out.println(list[j]);
         for(int i:list[j]){ 
             if(!visited[i]){
                 dfs(list,i,des,visited);
             }
         }
-        //return false;
     }
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         LinkedList<Integer> list[]=new LinkedList[n];
