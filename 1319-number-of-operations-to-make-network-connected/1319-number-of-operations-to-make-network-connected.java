@@ -13,7 +13,6 @@ class Solution {
             list[a[1]].add(a[0]);
         }
         boolean[] visited=new boolean[n];
-      //  Arrays.fill(visited,false);
         int c=0;
         for(int i=0;i<n;i++){
             if(!visited[i]){
