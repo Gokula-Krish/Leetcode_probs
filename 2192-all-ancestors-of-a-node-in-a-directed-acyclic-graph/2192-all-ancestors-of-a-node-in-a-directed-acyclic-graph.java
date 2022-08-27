@@ -16,19 +16,16 @@ class Solution {
             dfsVisit=new boolean[n];
             dfs(list,i);
             ls.add(new ArrayList(set));
-          //  System.out.println(set);
         }
         return ls;
     }
     public void dfs(LinkedList<Integer> list[],int j){
         dfsVisit[j]=true;
-      ///  if(!(set.size()==0)){set.add(j);}
         for(int i:list[j]){
             if(!dfsVisit[i]){
                 set.add(i);
                 dfs(list,i);
             }
         }
-       // dfsVisit[j]=false;
     }
 }
