@@ -28,7 +28,6 @@ class Solution {
         }
         l=-1;
         for(int i=1;i<mat.length;i++){
-           // map.put(l,new PriorityQueue());
             int k=i,j=0;
             while(k<mat.length && j<mat[0].length){
                 mat[k][j]=map.get(l).poll();
