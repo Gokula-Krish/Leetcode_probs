@@ -15,6 +15,7 @@ class Solution {
             map.put(l,new PriorityQueue());
             int k=i,j=0;
             while(k<mat.length && j<mat[0].length){
+                System.out.println(k+","+j);
                 map.get(l).add(mat[k][j]);
                 k++;j++;
             }l--;
