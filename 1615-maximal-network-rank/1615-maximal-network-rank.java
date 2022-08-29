@@ -5,7 +5,6 @@ class Solution {
             degrees[arr[1]]++;
             degrees[arr[0]]++;
         }
-      //  System.out.println(Arrays.toString(degrees));
         HashSet<Integer> set[]=new HashSet[n];
         for(int i=0;i<n;i++){
             set[i]=new HashSet();
@@ -17,7 +16,6 @@ class Solution {
         int max=0;
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
-               // System.out.println(i+" and "+j+"==="+degrees[i]+"==="+degrees[j]);
                 max=Math.max(max,degrees[j]+degrees[i]-(set[i].contains(j)?1:0));
             }
         }
