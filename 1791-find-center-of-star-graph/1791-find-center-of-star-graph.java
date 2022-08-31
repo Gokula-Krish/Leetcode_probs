@@ -10,7 +10,6 @@ class Solution {
             degrees[arr[0]]++;
             degrees[arr[1]]++;
         }
-      //  System.out.println(Arrays.toString(degrees));
         int c=1;
         for(int i=1;i<=n;i++){
             if(degrees[i]==(n-1)){
