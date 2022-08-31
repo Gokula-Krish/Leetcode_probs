@@ -3,9 +3,7 @@ class Solution {
     int n;
     public void backTrack(String s,String t,int j){
         if(j>=n){
-            
             ls.add(t.trim());
-          //  System.out.println(ls);
             return;
         }
         String str="";
@@ -23,6 +21,7 @@ class Solution {
         for(String str:wordDict){
             set.add(str);
         }
+        System.out.println(ls.size());
         backTrack(s,"",0);
         return ls;
     }
