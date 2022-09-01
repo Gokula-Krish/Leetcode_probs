@@ -30,8 +30,6 @@ class Solution {
         }
         if(root==null)return false;
         if(node==null)return true;
-      //  if(root==null || node==null)return false;
-        System.out.println(root.val+"====="+node.val);
         return root.val==node.val && (found(root.left,node.next) || found(root.right,node.next));
     }
     boolean ans=false;
