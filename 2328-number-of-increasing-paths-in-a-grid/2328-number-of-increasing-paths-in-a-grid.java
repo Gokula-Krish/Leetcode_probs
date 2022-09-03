@@ -24,9 +24,8 @@ class Solution {
             count+=1+dfs(A,r,c-1,dp);
         }
         //visited[r][c]=false;
-        count=count%mod;
-        dp[r][c]=count;
-        return count;
+        dp[r][c]=count%mod;
+        return dp[r][c];
     }
     public int countPaths(int[][] grid) {
         int[][] dp=new int[grid.length][grid[0].length];
