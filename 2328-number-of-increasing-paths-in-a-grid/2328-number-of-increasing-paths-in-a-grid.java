@@ -8,8 +8,6 @@ class Solution {
         if(r<0 || c<0 || r>=A.length || c>=A[0].length){
             return 0;
         }
-        
-        //visited[r][c]=true;
         int count=0;
         if(r<A.length-1 && A[r][c]<A[r+1][c]){
             count+=1+dfs(A,r+1,c,dp);
@@ -23,7 +21,6 @@ class Solution {
         if(c>0 && A[r][c]<A[r][c-1]){
             count+=1+dfs(A,r,c-1,dp);
         }
-        //visited[r][c]=false;
         dp[r][c]=count%mod;
         return dp[r][c];
     }
@@ -35,10 +32,10 @@ class Solution {
         int c=0;
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[0].length;j++){
-                c+=dfs(grid,i,j,dp);
+                c+=1+dfs(grid,i,j,dp);
                 c%=mod;
             }
         }
-        return ((c)+(grid.length*grid[0].length))%mod;
+        return c%mod;
     }
 }
