@@ -6,7 +6,6 @@ class Solution {
             }
             return a[0]-b[0];
         });
-        System.out.println(Arrays.deepToString(properties));
         int c=0,max=Integer.MIN_VALUE;
         for(int i=properties.length-1;i>=0;i--){
             if(max>properties[i][1]){
