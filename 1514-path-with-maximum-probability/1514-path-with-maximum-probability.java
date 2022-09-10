@@ -13,7 +13,7 @@ class Solution {
         PriorityQueue<double[]> pq=new PriorityQueue<double[]>((a,b)->(Double.compare(b[1],a[1])));
         pq.add(new double[]{start,1});
         double[] d=new double[n];
-        Arrays.fill(d,Integer.MIN_VALUE);
+        Arrays.fill(d,0);
         d[start]=(double)1;
         while(!pq.isEmpty()){
             double[] node=pq.poll();
@@ -24,6 +24,6 @@ class Solution {
                 }
             }
         }
-        return d[end]==Integer.MIN_VALUE?0:d[end];
+        return d[end];
     }
 }
