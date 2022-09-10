@@ -24,7 +24,6 @@ class Solution {
                 Arrays.fill(a,-1);
             }
         }
-      //  System.out.println(Arrays.deepToString(dp));
         return buyAndSell(prices,dp,0,1,k,n);
     }
 }
