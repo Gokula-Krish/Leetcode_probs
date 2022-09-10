@@ -10,7 +10,7 @@ class Solution {
             G[arr[1]].add(new double[]{arr[0],succProb[i]});
             i++;
         }
-        PriorityQueue<double[]> pq=new PriorityQueue<double[]>((a,b)->(Double.compare(b[1],a[1])));
+        PriorityQueue<double[]> pq=new PriorityQueue<double[]>((a,b)->Double.compare(b[1],a[1]));
         pq.add(new double[]{start,1});
         double[] d=new double[n];
         Arrays.fill(d,0);
