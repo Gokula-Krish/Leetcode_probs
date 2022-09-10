@@ -14,7 +14,7 @@ class Solution {
         pq.add(new double[]{start,1});
         double[] d=new double[n];
         Arrays.fill(d,0);
-        d[start]=(double)1;
+        d[start]=1;
         while(!pq.isEmpty()){
             double[] node=pq.poll();
             for(double[] arr:G[(int)node[0]]){
