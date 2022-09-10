@@ -7,11 +7,10 @@ class Twitter {
         this.follow=new HashMap();
         this.time=0;
     }
-    int call=0;
     public void postTweet(int userId, int tweetId) {
         if(follow.get(userId)==null){
             follow.put(userId,new HashSet());
-        }call++;
+        }
         pq.add(new int[]{time++,userId,tweetId});
     }
     
